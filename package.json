@@ -6,7 +6,7 @@
   "dependencies": {
     "temp": "~0.4.0"
   },
-  "repository": {"type":"git","url":""},
+  "repository": {"type":"git","url":"git@github.com:jden/node-flite.git"},
   "keywords": [
     "flite",
     "tts",
