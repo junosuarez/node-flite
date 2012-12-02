@@ -1,0 +1,20 @@
+{
+  "name": "flite",
+  "version": "0.1.0",
+  "description": "binding for flite, a tiny text-to-speech synthesizer",
+  "main": "flite.js",
+  "dependencies": {
+    "temp": "~0.4.0"
+  },
+  "repository": {"type":"git","url":""},
+  "keywords": [
+    "flite",
+    "tts",
+    "text",
+    "speech",
+    "robot",
+    "robots"
+  ],
+  "author": "jden <jason@denizac.org>",
+  "license": "MIT"
+}
