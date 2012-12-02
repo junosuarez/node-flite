@@ -26,6 +26,7 @@ function init(config, cb) {
 }
 
 function detectFeatures(cb) {
+  var usage = /usage/i;
   child.exec('flite --version', function (err, stdout) {
     dep.flite = /flite-1\.4/.test(stdout);
     if (!dep.flite) {
@@ -36,9 +37,9 @@ function detectFeatures(cb) {
       dep.voices = stdout.trim().split(' ').slice(2);
     });
     child.exec('aplay --help', function (err, stdout, stderr) {
-      dep.aplay = /usage/i.test(stderr);
+      dep.aplay = usage.test(stderr) || usage.test(stdout);
       child.exec('afplay --help', function (err, stdout, stderr) {
-        dep.afplay = /usage/i.test(stderr);
+        dep.afplay = usage.test(stderr) || usage.test(stdout);
 
         dep.init = true;
         cb();
@@ -65,7 +66,7 @@ function save(text, path, cb) {
 function say(text, fileout, cb) {
   var self = this;
   if (!cb) {
-    cb = fileout;
+    cb = fileout || noop;
     fileout = null;
   }
   text = escapeshell(text);
@@ -118,8 +119,10 @@ function cmd(also) {
   return cmdStr;
 }
 
-var escapeshell = function(cmd) {
+function escapeshell(cmd) {
   return '"'+cmd.replace(/(["\s'$`\\])/g,'\\$1')+'"';
-};
+}
+
+function noop() {}
 
 module.exports = init;

@@ -1,6 +1,6 @@
 {
   "name": "flite",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "binding for flite, a tiny text-to-speech synthesizer",
   "main": "flite.js",
   "dependencies": {
