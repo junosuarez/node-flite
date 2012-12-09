@@ -35,14 +35,14 @@ function detectFeatures(cb) {
     }
     child.exec('flite -lv', function (err, stdout) {
       dep.voices = stdout.trim().split(' ').slice(2);
-    });
-    child.exec('aplay --help', function (err, stdout, stderr) {
-      dep.aplay = usage.test(stderr) || usage.test(stdout);
-      child.exec('afplay --help', function (err, stdout, stderr) {
-        dep.afplay = usage.test(stderr) || usage.test(stdout);
+      child.exec('aplay --help', function (err, stdout, stderr) {
+        dep.aplay = usage.test(stderr) || usage.test(stdout);
+        child.exec('afplay --help', function (err, stdout, stderr) {
+          dep.afplay = usage.test(stderr) || usage.test(stdout);
 
-        dep.init = true;
-        cb();
+          dep.init = true;
+          cb();
+        });
       });
     });
   });
