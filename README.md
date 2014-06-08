@@ -16,8 +16,10 @@ Flite is super tiny and fast and works great on ARM (eg, robots!), and has a var
     var message = "you know what we need? some more waffles!"
 
     flite(function (err, speech) {
+      if (err) { return console.error(err) }
       speech.say(message, function (err) {
-        if (err) console.error('I\'m afraid I can\'t do that, Dave', err);
+        if (err) { return console.error(err) }
+        /// make sure to have your sound on :)
       });
     });
 
