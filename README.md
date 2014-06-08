@@ -5,7 +5,7 @@ binding for flite, a tiny text-to-speech synthesizer
 
     $ npm install flite
 
-also requires `flite 1.4.x`([www](http://www.speech.cs.cmu.edu/flite/)) and either `aplay`([www](http://alsa.opensrc.org/Aplay)) or `afplay` (default on OS X) to be installed and in your `$PATH`.
+also requires `flite 1.4.x`([www](http://www.speech.cs.cmu.edu/flite/)) and either `aplay`([www](http://alsa.opensrc.org/Aplay)) or `afplay` (default on OS X) to be installed and in your `$PATH`. Working on OSX and linux. Windows is currently untested and likely unsupported.
 
 Flite is super tiny and fast and works great on ARM (eg, robots!), and has a variety of voices available (which are compiled into the binary - you probably want to build it yourself).
 
